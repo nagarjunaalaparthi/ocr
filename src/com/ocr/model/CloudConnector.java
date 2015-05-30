@@ -74,12 +74,12 @@ import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.content.Context;
+import android.os.AsyncTask;
+
 import com.ocr.LogUtils;
 import com.ocr.NetworkUtils;
 import com.ocr.SharedPreferencesUtils;
-
-import android.content.Context;
-import android.os.AsyncTask;
 
 public class CloudConnector implements CloudConstants {
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_gravity="center"
+    android:gravity="center"
+    style="@style/screen_background_style" >
+
+
+    <ImageView
+        android:id="@+id/textarea"
+        style="@style/both_wrap"
+        android:layout_centerHorizontal="true"
+        android:contentDescription="@string/app_name"
+        android:padding="@dimen/padding_5"
+        android:src="@drawable/text_area" />
+
+    <include
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textarea"
+        layout="@layout/include_view_share_view" />
+
+</RelativeLayout>

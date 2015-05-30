@@ -1,8 +1,13 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/holo_purple" >
+    style="@style/screen_background_style" >
 
+    <ImageView
+        android:id="@+id/magictext"
+        style="@style/both_wrap"
+        android:layout_centerInParent="true"
+        android:contentDescription="@string/app_name"
+        android:padding="@dimen/padding_5"
+        android:src="@drawable/magictext" />
 
 </RelativeLayout>
