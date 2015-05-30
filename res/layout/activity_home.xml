@@ -1,0 +1,34 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/screen_background_style"
+    android:gravity="center" >
+
+    <TextView
+        android:id="@+id/capture_text"
+        style="@style/textstyle"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/padding_15"
+        android:drawablePadding="@dimen/padding_5"
+        android:drawableTop="@drawable/camera"
+        android:gravity="center"
+        android:text="@string/TAKE_A_PHOTO" />
+
+    <ImageView
+        android:id="@+id/seperator"
+        style="@style/both_wrap"
+        android:layout_below="@+id/capture_text"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/seperator" />
+
+    <TextView
+        android:id="@+id/upload_text"
+        style="@style/textstyle"
+        android:layout_below="@+id/seperator"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/padding_15"
+        android:drawablePadding="@dimen/padding_5"
+        android:drawableTop="@drawable/gallery"
+        android:gravity="center"
+        android:text="@string/UPLOAD_FROM_GALLERY" />
+
+</RelativeLayout>

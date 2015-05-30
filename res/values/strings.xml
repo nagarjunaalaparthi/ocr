@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">workingtitle</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    
+    <string name="TAKE_A_PHOTO">TAKE A PHOTO</string>
+    <string name="UPLOAD_FROM_GALLERY">UPLOAD FROM GALLERY</string>
+
+</resources>
