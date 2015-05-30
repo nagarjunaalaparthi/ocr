@@ -8,17 +8,11 @@ import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.ocr.LogUtils;
+import com.ocr.utils.OCRConstants;
 
-public class DataBaseHelper extends SQLiteOpenHelper {
+public class DataBaseHelper extends SQLiteOpenHelper implements OCRConstants{
 
-	private static final int DATABASE_VERSION = 1;
-
-	// Database Name
-	private static String DATABASE_NAME = "ocrdatabse";
-	private String TABLE_TEXT = "texttable";
-	private String KEY_ID = "_id";
-	private String TEXT = "text";
-	private String TIME = "time";
+	
 	private String CREATE_TABLE_TEXT = "CREATE TABLE IF NOT EXISTS " + TABLE_TEXT + "(" + KEY_ID + " integer primary key autoincrement," + TEXT + " TEXT," + TIME + " TEXT" + ");";
 
 	private SQLiteDatabase db;

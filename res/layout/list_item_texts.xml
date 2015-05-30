@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/match_wrap"
+    android:background="@android:color/transparent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/text"
+        style="@style/textstyle"
+        android:text="@string/TAKE_A_PHOTO" />
+
+    <TextView
+        android:id="@+id/time"
+        style="@style/both_wrap"
+        android:gravity="center"
+        android:textSize="@dimen/padding_13"
+        android:text="@string/UPLOAD_FROM_GALLERY"
+        android:textColor="@android:color/background_dark" />
+
+</LinearLayout>
