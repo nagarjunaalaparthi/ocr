@@ -42,7 +42,12 @@
     <!--  text style -->
     <style name="textstyle" parent="both_wrap">
         <item name="android:textColor">#e6e6e6</item>
-        <item name="android:textSize">16dp</item>
+        <item name="android:textSize">20dp</item>
         <item name="android:textStyle">bold</item>
+    </style>
+    
+     <!--  button style -->
+    <style name="buttonstyle" parent="textstyle">
+        <item name="android:background">@drawable/buttonbox</item>
     </style>
 </resources>
