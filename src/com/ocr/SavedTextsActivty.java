@@ -23,8 +23,9 @@ public class SavedTextsActivty extends BaseActivity {
 	private Button mDelete;
 	private Button mCopy;
 	private Button mShare;
-	private ArrayList<Text> textlist;
+	private ArrayList<Text> textlist = new ArrayList<Text>();
 	private int textPosition = -1;
+	private TextListAdapter savedTextAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +38,13 @@ public class SavedTextsActivty extends BaseActivity {
 
 	private void initViews() {
 		mSavedTextsListView = (ListView) findViewById(R.id.savedlist);
+		savedTextAdapter = new TextListAdapter(getBaseContext(), textlist);
+		mSavedTextsListView.setAdapter(savedTextAdapter);
 		mTextOptionsView = (View) findViewById(R.id.textoptions);
 		mShare = (Button) findViewById(R.id.share);
 		mCopy = (Button) findViewById(R.id.copy);
 		mDelete = (Button) findViewById(R.id.save);
+		mDelete.setText(getString(R.string.delete));
 	}
 
 	private void initListeners() {
@@ -66,6 +70,7 @@ public class SavedTextsActivty extends BaseActivity {
 				textlist.add(text);
 			}
 		}
+		savedTextAdapter.setTextList(textlist);
 	}
 
 	protected void setVisibilityWithAnimation(int visibility) {
@@ -104,6 +109,7 @@ public class SavedTextsActivty extends BaseActivity {
 	};
 	private void deleteFromDB(String id) {
 		dbHelper.delete(id);
+		getSavedTexts();
 	}
 	private OnItemClickListener listItemClickListener = new OnItemClickListener() {
 

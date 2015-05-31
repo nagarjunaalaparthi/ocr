@@ -35,6 +35,12 @@ public class HomeScreenActivity extends BaseActivity implements OnClickListener 
 		mSavedListButton.setOnClickListener(this);
 	}
 
+	@Override
+	protected void onResume() {
+		super.onResume();
+		checkSavedList();
+	}
+
 	private void checkSavedList() {
 		Cursor cursor = dbHelper.retrieveText();
 		if (cursor.getCount() > 0) {
@@ -53,11 +59,10 @@ public class HomeScreenActivity extends BaseActivity implements OnClickListener 
 		case R.id.upload_text:
 			onClickGallery();
 			break;
-		case R.id.saved :
+		case R.id.saved:
 			Intent intent = new Intent(this, SavedTextsActivty.class);
 			startActivity(intent);
 			animationStyle();
-			finish();
 			break;
 		default:
 			break;

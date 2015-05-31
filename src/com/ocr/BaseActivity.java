@@ -7,6 +7,7 @@ import java.nio.charset.Charset;
 import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntity;
 import org.apache.http.entity.mime.content.FileBody;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import android.app.Activity;
@@ -16,12 +17,15 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.TranslateAnimation;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.ocr.model.CloudConnector;
 import com.ocr.model.CloudConnector.JSONCallback;
@@ -37,13 +41,14 @@ public class BaseActivity extends Activity implements OCRConstants {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
 		cloudConnector = new CloudConnector(this);
 		getActionBar().hide();
 		dbHelper = new DataBaseHelper(this, DATABASE_NAME, null, DATABASE_VERSION);
 		progressDialog = new Dialog(BaseActivity.this, R.style.CustomDialogAnimTheme);
 		progressDialog.setContentView(R.layout.dialog_progress);
+		ProgressBar mProgressBar = (ProgressBar) progressDialog.findViewById(R.id.progress);
+		mProgressBar.getIndeterminateDrawable().setColorFilter(Color.parseColor("#e6e6e6"), android.graphics.PorterDuff.Mode.MULTIPLY);
 	}
 
 	public void onClickCamera() {
@@ -57,6 +62,30 @@ public class BaseActivity extends Activity implements OCRConstants {
 			e.printStackTrace();
 		}
 	}
+
+	/**
+	 * creates and shows the progress dialog
+	 */
+	public void showProgressDialog() {
+		if (!this.isFinishing()) {
+			progressDialog.show();
+		} else {
+			progressDialog.dismiss();
+			if (!isFinishing()) {
+				progressDialog.show();
+			}
+		}
+	}
+
+	/**
+	 * dismiss the progress dialog if showing
+	 */
+	public void dismissProgressDialog() {
+		if (!this.isFinishing()) {
+			progressDialog.dismiss();
+		}
+	}
+
 	protected void animationStyle() {
 		overridePendingTransition(R.anim.anim_push_left_in, R.anim.anim_push_left_out);
 	}
@@ -74,11 +103,22 @@ public class BaseActivity extends Activity implements OCRConstants {
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
 		String picturePath;
+
 		if (requestCode == PICK_FROM_GALLERY && resultCode == RESULT_OK && data != null && data.getData() != null) {
-			Uri uri = data.getData();
-			picturePath = getPath(uri);
+			if (data != null) {
+				Uri uri = data.getData();
+				picturePath = getPath(uri);
+			} else {
+				Toast.makeText(BaseActivity.this, "Image not recognized.", Toast.LENGTH_SHORT).show();
+				return;
+			}
 		} else {
-			picturePath = mImageCaptureUri.getPath();
+			if (mImageCaptureUri != null && mImageCaptureUri.getPath().length() > 0) {
+				picturePath = mImageCaptureUri.getPath();
+			} else {
+				Toast.makeText(BaseActivity.this, "Image not recognized.", Toast.LENGTH_SHORT).show();
+				return;
+			}
 		}
 		String url = "https://api.idolondemand.com/1/api/sync/ocrdocument/v1";
 
@@ -99,15 +139,29 @@ public class BaseActivity extends Activity implements OCRConstants {
 		} catch (Exception e) { // TODO
 			e.printStackTrace();
 		}
-
+		showProgressDialog();
 		cloudConnector.postMultipart(this, url, getMultiPartEntity(file), new JSONCallback() {
 
 			@Override
 			public void getJsonData(byte error, JSONObject data) {
-				// TODO Auto-generated method stub
-
+				dismissProgressDialog();
+				try {
+					if (data.has("text_block")) {
+						JSONArray textBlock = data.getJSONArray("text_block");
+						JSONObject object = textBlock.getJSONObject(0);
+						String text = object.getString("text");
+						Intent intent = new Intent(BaseActivity.this, PreviewActvity.class);
+						intent.putExtra(OCRConstants.KEY_TEXT, text);
+						startActivity(intent);
+					} else {
+						Toast.makeText(BaseActivity.this, "Error", Toast.LENGTH_SHORT).show();
+					}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
 		});
+
 	}
 
 	private MultipartEntity getMultiPartEntity(File file) {

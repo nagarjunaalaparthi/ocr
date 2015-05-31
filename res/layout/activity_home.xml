@@ -16,8 +16,8 @@
             android:id="@+id/capture_text"
             style="@style/textstyle"
             android:layout_centerHorizontal="true"
-            android:layout_marginBottom="@dimen/padding_15"
-            android:drawablePadding="@dimen/padding_5"
+            android:layout_marginBottom="@dimen/padding_30"
+            android:drawablePadding="@dimen/padding_10"
             android:drawableTop="@drawable/camera"
             android:gravity="center"
             android:text="@string/TAKE_A_PHOTO" />
@@ -34,9 +34,9 @@
             style="@style/textstyle"
             android:layout_below="@+id/seperator"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/padding_15"
-            android:drawablePadding="@dimen/padding_5"
-            android:drawableTop="@drawable/gallery"
+            android:layout_marginTop="@dimen/padding_30"
+            android:drawablePadding="@dimen/padding_10"
+            android:drawableBottom="@drawable/gallery"
             android:gravity="center"
             android:text="@string/UPLOAD_FROM_GALLERY" />
     </RelativeLayout>
@@ -48,6 +48,7 @@
         android:layout_weight="0.3"
         android:gravity="center"
         android:text="@string/saved_list"
-        android:visibility="gone" />
+        android:visibility="gone"
+         />
 
 </LinearLayout>

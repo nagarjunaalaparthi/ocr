@@ -1,22 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/screen_background_style"
     android:layout_gravity="center"
-    android:gravity="center"
-    style="@style/screen_background_style" >
-
+    android:gravity="center" >
 
     <EditText
         android:id="@+id/textarea"
         style="@style/both_wrap"
         android:layout_centerHorizontal="true"
+        android:background="@drawable/text_area"
         android:contentDescription="@string/app_name"
-        android:padding="@dimen/padding_5"
-        android:background="@drawable/text_area" />
+        android:maxLines="8"
+        android:padding="@dimen/padding_10" />
 
     <include
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textarea"
+        android:id="@+id/options"
+        android:layout_marginTop="@dimen/padding_10"
         layout="@layout/include_view_share_view" />
+
+    <ImageView
+        android:id="@+id/appicon"
+        style="@style/both_wrap"
+        android:layout_below="@+id/options"
+        android:layout_marginTop="@dimen/padding_10"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/magictext" />
 
 </RelativeLayout>

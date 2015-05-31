@@ -148,7 +148,7 @@ public class CloudConnector implements CloudConstants {
 					mHttPost = new HttpPost(url);
 					if (multipartEntity != null) {
 						multipartEntity.addPart("apikey", new StringBody(API_KEY, "text/plain", Charset.forName("UTF-8")));
-						multipartEntity.addPart("mode", new StringBody("scene_photo", "text/plain", Charset.forName("UTF-8")));
+						multipartEntity.addPart("mode", new StringBody("document_photo", "text/plain", Charset.forName("UTF-8")));
 						mHttPost.setEntity(multipartEntity);
 					}
 

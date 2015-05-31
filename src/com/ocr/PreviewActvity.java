@@ -62,7 +62,7 @@ public class PreviewActvity extends BaseActivity {
 				copyDateToClipBoard(text);
 				break;
 			case R.id.share:
-				shareText("");
+				shareText(text);
 				break;
 			}
 		}
