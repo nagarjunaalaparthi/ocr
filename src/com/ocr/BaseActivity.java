@@ -22,6 +22,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.text.Html;
+import android.text.Spanned;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.TranslateAnimation;
 import android.widget.ProgressBar;
@@ -149,9 +151,9 @@ public class BaseActivity extends Activity implements OCRConstants {
 					if (data.has("text_block")) {
 						JSONArray textBlock = data.getJSONArray("text_block");
 						JSONObject object = textBlock.getJSONObject(0);
-						String text = object.getString("text");
+						Spanned text = Html.fromHtml(object.getString("text").replace("\n", "<br>"));
 						Intent intent = new Intent(BaseActivity.this, PreviewActvity.class);
-						intent.putExtra(OCRConstants.KEY_TEXT, text);
+						intent.putExtra(OCRConstants.KEY_TEXT, text.toString());
 						startActivity(intent);
 					} else {
 						Toast.makeText(BaseActivity.this, "Error", Toast.LENGTH_SHORT).show();
