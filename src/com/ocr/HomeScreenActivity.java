@@ -1,5 +1,6 @@
 package com.ocr;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
@@ -39,7 +40,7 @@ public class HomeScreenActivity extends BaseActivity implements OnClickListener 
 		if (cursor.getCount() > 0) {
 			mSavedListButton.setVisibility(View.VISIBLE);
 		} else {
-			mSavedListButton.setVisibility(View.VISIBLE);
+			mSavedListButton.setVisibility(View.GONE);
 		}
 	}
 
@@ -53,7 +54,10 @@ public class HomeScreenActivity extends BaseActivity implements OnClickListener 
 			onClickGallery();
 			break;
 		case R.id.saved :
-			shareText("magic text OCR");
+			Intent intent = new Intent(this, SavedTextsActivty.class);
+			startActivity(intent);
+			animationStyle();
+			finish();
 			break;
 		default:
 			break;

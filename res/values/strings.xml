@@ -11,5 +11,6 @@
     <string name="copy">copy</string>
     <string name="save">save</string>
     <string name="saved_list">saved texts</string>
-
+	
+    <string name="copy_message">%1$s</string>
 </resources>

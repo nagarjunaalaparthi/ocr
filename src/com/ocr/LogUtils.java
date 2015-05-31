@@ -5,7 +5,7 @@
 //**************************************************************************************************
 //**************************************************************************************************
 //
-//        Project name                        : Cuckuu
+//        Project name                        : OCR
 //        Class Name                          : LogUtils
 //        Date                                : 
 //        Author                              : [x]cube LABS
@@ -25,44 +25,44 @@ public class LogUtils {
 
 	private static boolean isEnabled = true;
 
-	public static final String CUCKUU_INFO_TAG = "cuckuu_info";
-	public static final String CUCKUU_DEBUG_TAG = "cuckuu_debug";
-	public static final String CUCKUU_ERROR_TAG = "cuckuu_error";
-	public static final String CUCKUU_WARN_TAG = "cuckuu_warn";
-	public static final String CUCKUU_VERBOSE_TAG = "cuckuu_verbose";
+	public static final String OCR_INFO_TAG = "OCR_info";
+	public static final String OCR_DEBUG_TAG = "OCR_debug";
+	public static final String OCR_ERROR_TAG = "OCR_error";
+	public static final String OCR_WARN_TAG = "OCR_warn";
+	public static final String OCR_VERBOSE_TAG = "OCR_verbose";
 
 	// prints message
-	public static void message(String cuckuu_msg) {
+	public static void message(String OCR_msg) {
 		if (isEnabled) {
-			System.out.println("MSG  " + cuckuu_msg);
+			System.out.println("MSG  " + OCR_msg);
 		}
 	}
 
 	// prints debug msg on logcat
-	public static void debugMsg(String cuckuu_msg) {
+	public static void debugMsg(String OCR_msg) {
 		if (isEnabled) {
-			Log.d(CUCKUU_DEBUG_TAG, cuckuu_msg);
+			Log.d(OCR_DEBUG_TAG, OCR_msg);
 		}
 	}
 
 	// prints info msg on logcat
-	public static void infoMsg(String cuckuu_msg) {
+	public static void infoMsg(String OCR_msg) {
 		if (isEnabled) {
-			Log.i(CUCKUU_INFO_TAG, cuckuu_msg);
+			Log.i(OCR_INFO_TAG, OCR_msg);
 		}
 	}
 
 	// prints error msg on logcat
-	public static void errorMsg(String cuckuu_msg) {
+	public static void errorMsg(String OCR_msg) {
 		if (isEnabled) {
-			Log.e(CUCKUU_ERROR_TAG, cuckuu_msg);
+			Log.e(OCR_ERROR_TAG, OCR_msg);
 		}
 	}
 
 	// prints verbose msg on logcat
-	public static void verboseMsg(String cuckuu_msg) {
+	public static void verboseMsg(String OCR_msg) {
 		if (isEnabled) {
-			Log.e(CUCKUU_VERBOSE_TAG, cuckuu_msg);
+			Log.e(OCR_VERBOSE_TAG, OCR_msg);
 		}
 
 	}

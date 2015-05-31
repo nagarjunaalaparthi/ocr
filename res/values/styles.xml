@@ -2,52 +2,69 @@
 
     <!--
         Base application theme, dependent on API level. This theme is replaced
-        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
     -->
     <style name="AppBaseTheme" parent="android:Theme.Light">
         <!--
             Theme customizations available in newer API levels can go in
             res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
+            backward-compatibility can go here.
         -->
     </style>
-    
+
     <!-- Application theme. -->
     <style name="AppTheme" parent="AppBaseTheme">
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
-    
     <!-- width and height both wrap contents -->
     <style name="both_wrap">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
-<!-- width and height both match contents -->
+    <!-- width and height both match contents -->
     <style name="both_match">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>
     </style>
-<!-- width and height match and wrap contents -->
+    <!-- width and height match and wrap contents -->
     <style name="match_wrap">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
     </style>
-    <!--  screen background style -->
-    
+    <!-- screen background style -->
+
     <style name="screen_background_style" parent="both_match">
         <item name="android:background">@drawable/background</item>
     </style>
-    
-    <!--  text style -->
+
+    <!-- text style -->
     <style name="textstyle" parent="both_wrap">
         <item name="android:textColor">#e6e6e6</item>
         <item name="android:textSize">20dp</item>
         <item name="android:textStyle">bold</item>
     </style>
-    
-     <!--  button style -->
+
+    <!-- button style -->
     <style name="buttonstyle" parent="textstyle">
         <item name="android:background">@drawable/buttonbox</item>
     </style>
+
+    <!-- dialogue theme -->
+    <style name="CustomDialogAnimTheme" parent="@android:style/Theme.Translucent.NoTitleBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:windowAnimationStyle">@style/DialogAnimationSlide</item>
+    </style>
+
+    <style name="DialogAnimationSlide">
+        <item name="android:windowEnterAnimation">@anim/anim_push_top_in</item>
+        <item name="android:windowExitAnimation">@anim/anim_push_top_out</item>
+    </style>
+
+
 </resources>

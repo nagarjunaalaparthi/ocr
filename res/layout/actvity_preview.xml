@@ -5,13 +5,13 @@
     style="@style/screen_background_style" >
 
 
-    <ImageView
+    <EditText
         android:id="@+id/textarea"
         style="@style/both_wrap"
         android:layout_centerHorizontal="true"
         android:contentDescription="@string/app_name"
         android:padding="@dimen/padding_5"
-        android:src="@drawable/text_area" />
+        android:background="@drawable/text_area" />
 
     <include
         android:layout_width="match_parent"

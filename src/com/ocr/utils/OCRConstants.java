@@ -12,5 +12,6 @@ public interface OCRConstants {
 	String TEXT = "text";
 	String TIME = "time";
 	String TABLE_TEXT = "texttable";
+	String KEY_TEXT = "textpojo";
 	
 }

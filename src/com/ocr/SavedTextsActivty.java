@@ -89,19 +89,22 @@ public class SavedTextsActivty extends BaseActivity {
 			if (textPosition != -1) {
 				switch (v.getId()) {
 				case R.id.save:
-
+					deleteFromDB(textlist.get(textPosition).getId());
 					break;
 				case R.id.copy:
-
+					copyDateToClipBoard(textlist.get(textPosition).getText());
 					break;
 				case R.id.share:
-					shareText("");
+					shareText(textlist.get(textPosition).getText());
 					break;
 				}
 			}
 			setVisibilityWithAnimation(View.GONE);
 		}
 	};
+	private void deleteFromDB(String id) {
+		dbHelper.delete(id);
+	}
 	private OnItemClickListener listItemClickListener = new OnItemClickListener() {
 
 		@Override
