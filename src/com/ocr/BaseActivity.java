@@ -117,6 +117,10 @@ public class BaseActivity extends Activity implements OCRConstants {
 		} else {
 			if (mImageCaptureUri != null && mImageCaptureUri.getPath().length() > 0) {
 				picturePath = mImageCaptureUri.getPath();
+				if (picturePath == null) {
+					Toast.makeText(BaseActivity.this, "Image not recognized.", Toast.LENGTH_SHORT).show();
+					return;
+				}
 			} else {
 				Toast.makeText(BaseActivity.this, "Image not recognized.", Toast.LENGTH_SHORT).show();
 				return;
@@ -210,5 +214,6 @@ public class BaseActivity extends Activity implements OCRConstants {
 	protected void copyDateToClipBoard(String text) {
 		MyClipboardManager clipboardManager = new MyClipboardManager(this);
 		clipboardManager.copyTextToClipboard(text);
+		Toast.makeText(getBaseContext(), "copied to clipboard", Toast.LENGTH_SHORT).show();
 	}
 }

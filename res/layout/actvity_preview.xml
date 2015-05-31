@@ -4,13 +4,13 @@
     android:layout_gravity="center"
     android:gravity="center" >
 
-    <EditText
+    <com.ocr.utils.CustomEditTextView
         android:id="@+id/textarea"
         style="@style/both_wrap"
         android:layout_centerHorizontal="true"
         android:background="@drawable/text_area"
         android:contentDescription="@string/app_name"
-        android:maxLines="8"
+        android:maxLines="9"
         android:padding="@dimen/padding_10" />
 
     <include

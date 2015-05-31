@@ -12,7 +12,7 @@
         android:layout_weight="2"
         android:gravity="center_vertical" >
 
-        <TextView
+        <com.ocr.utils.CustomTextView
             android:id="@+id/capture_text"
             style="@style/textstyle"
             android:layout_centerHorizontal="true"
@@ -29,26 +29,25 @@
             android:contentDescription="@string/app_name"
             android:src="@drawable/seperator" />
 
-        <TextView
+        <com.ocr.utils.CustomTextView
             android:id="@+id/upload_text"
             style="@style/textstyle"
             android:layout_below="@+id/seperator"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/padding_30"
-            android:drawablePadding="@dimen/padding_10"
             android:drawableBottom="@drawable/gallery"
+            android:drawablePadding="@dimen/padding_10"
             android:gravity="center"
             android:text="@string/UPLOAD_FROM_GALLERY" />
     </RelativeLayout>
 
-    <Button
+    <com.ocr.utils.CustomButtonView
         android:id="@+id/saved"
         style="@style/buttonstyle"
         android:layout_marginBottom="@dimen/padding_10"
         android:layout_weight="0.3"
         android:gravity="center"
         android:text="@string/saved_list"
-        android:visibility="gone"
-         />
+        android:visibility="gone" />
 
 </LinearLayout>

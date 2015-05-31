@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class PreviewActvity extends BaseActivity {
 
@@ -73,6 +74,7 @@ public class PreviewActvity extends BaseActivity {
 		cv.put(TIME, getSavedTime());
 		cv.put(TEXT, text);
 		dbHelper.insertText(cv);
+		Toast.makeText(getBaseContext(), "saved successfully", Toast.LENGTH_LONG).show();
 	}
 
 	public static String getSavedTime() {

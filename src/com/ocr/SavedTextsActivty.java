@@ -2,7 +2,9 @@ package com.ocr;
 
 import java.util.ArrayList;
 
+import android.content.res.ColorStateList;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.MeasureSpec;
@@ -41,10 +43,14 @@ public class SavedTextsActivty extends BaseActivity {
 		savedTextAdapter = new TextListAdapter(getBaseContext(), textlist);
 		mSavedTextsListView.setAdapter(savedTextAdapter);
 		mTextOptionsView = (View) findViewById(R.id.textoptions);
+		mTextOptionsView.setBackgroundColor(Color.parseColor("#e6e6e6"));
 		mShare = (Button) findViewById(R.id.share);
 		mCopy = (Button) findViewById(R.id.copy);
 		mDelete = (Button) findViewById(R.id.save);
 		mDelete.setText(getString(R.string.delete));
+		mShare.setTextColor(Color.parseColor("#0F1928"));
+		mCopy.setTextColor(Color.parseColor("#0F1928"));
+		mDelete.setTextColor(Color.parseColor("#0F1928"));
 	}
 
 	private void initListeners() {
